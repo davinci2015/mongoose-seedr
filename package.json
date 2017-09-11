@@ -1,7 +1,7 @@
 {
-  "name": "mongoose-seed",
-  "version": "1.0.0",
-  "description": "",
+  "name": "mongoose-seedr",
+  "version": "0.1.0",
+  "description": "mongoose-seedr lets you seed your database with fake data that you provided.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

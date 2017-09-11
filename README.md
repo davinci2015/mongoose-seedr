@@ -13,7 +13,7 @@ $ npm install --save-dev mongoose-seedr
 ```js
 // seedDatabase.js
 const Seedr = require('mongoose-seedr');
-const path = require('path')
+const path = require('path');
 
 new Seedr({
     dbUrl: 'mongodb://localhost:27017/seed-test',
