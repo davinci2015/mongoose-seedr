@@ -20,5 +20,13 @@
   "license": "ISC",
   "dependencies": {
     "mongoose": "^4.11.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davinci2015/mongoose-seedr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davinci2015/mongoose-seedr/issues"
+  },
+  "homepage": "https://github.com/davinci2015/mongoose-seedr#readme"
 }
