@@ -1,12 +1,22 @@
 {
   "name": "mongoose-seedr",
   "version": "0.1.0",
-  "description": "mongoose-seedr lets you seed your database with fake data that you provided.",
+  "description": "Seed your MongoDB database with fake data",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "keywords": [
+    "mongoose",
+    "seed",
+    "seeder",
+    "mongo",
+    "mongodb",
+    "node",
+    "node.js",
+    "database"
+  ],
+  "author": "Danijel Vincijanović",
   "license": "ISC",
   "dependencies": {
     "mongoose": "^4.11.11"
