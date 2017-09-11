@@ -30,7 +30,7 @@ new Seedr({
 });
 
 ```
-Run script and _voila_, you seed your database.
+Run script and _voila_, you seeded your database.
 ```
 $ node seedDatabase.js
 ```
@@ -62,7 +62,7 @@ $ node seedDatabase.js
 ]
 ```
 As we can see, `users.json` file holds list of users. User have _pets_ array that have references to documents in another collection. <br>
-In this case we're using `ref:` followed by collection name and property that we want to get from another collection.
+In this case we're using `ref:` followed by collection name and property that we want to get from another collection document. _mongoose-seedr_ will pick random document and pull out property that you specified. <br>
 
 **pets.json** <br>
 ```json
