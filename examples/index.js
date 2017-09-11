@@ -1,5 +1,5 @@
 const path = require('path')
-const Seeder = require('../index')
+const Seeder = require('mongoose-seedr')
 
 new Seeder({
     dbUrl: 'mongodb://localhost:27017/seed-test',
