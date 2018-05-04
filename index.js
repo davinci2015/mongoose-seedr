@@ -7,20 +7,28 @@ const mongoose = require('mongoose')
 mongoose.Promise = Promise
 
 class Seeder {
-    constructor ({
-        dbUrl,
+    _dbUrl = null
+    _shouldDropDatabase = null
+    _referenceKey = null
+    _objectIdKey = null
+
+    seed = ({
+        databaseURL,
         seed,
         referenceKey = 'ref:',
         objectIdKey = 'ObjectId:',
         dropDatabase = true
-    }) {
+    }) => {
+        this._dbUrl = databaseURL
+        this._shouldDropDatabase = dropDatabase
         this._referenceKey = referenceKey
         this._objectIdKey = objectIdKey
+
         this._allData = this._loadJSONData(seed)
-        this._connectDB(dbUrl)
-            .then(() => console.log('Successfully connected to database'))
-            .then(() => dropDatabase && this._dropDatabase())
-            .then(() => this._seed())
+        this._connectDB(this._dbUrl)
+            .then(() => console.log(`Successfully connected to ${databaseURL} database!`))
+            .then(() => this._shouldDropDatabase && this._dropDatabase())
+            .then(() => this._startSeed())
             .catch((error) => console.log(error))
     }
 
@@ -38,7 +46,7 @@ class Seeder {
         return mongoose.connection.db.dropDatabase()
     }
 
-    _seed () {
+    _startSeed () {
         const db = mongoose.connection.db
         this._generateIds()
         this._checkReferences()
@@ -108,5 +116,6 @@ class Seeder {
     }
 }
 
-module.exports = Seeder
+const seeder = new Seeder()
+module.exports = { seed: seeder.seed }
 

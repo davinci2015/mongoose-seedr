@@ -12,11 +12,11 @@ $ npm install --save-dev mongoose-seedr
 
 ```js
 // seedDatabase.js
-const Seedr = require('mongoose-seedr');
+const seedr = require('mongoose-seedr');
 const path = require('path');
 
-new Seedr({
-    dbUrl: 'mongodb://localhost:27017/seed-test',
+seedr.seed({
+    databaseURL: 'mongodb://localhost:27017/seed-test',
     seed: [
         {
             documents: path.join(__dirname, 'users.json'),
@@ -79,11 +79,11 @@ In this case, we're using `ref:` followed by collection name and property that w
 ```
 
 ### Configuration
-Configuration object that you pass into _Seedr_ constructor: <br>
+Configuration object that you pass into _seed_ method: <br>
 
 | Prop name  | Description | Type | Default | Required |
 | ---------- | ----------- | :--: | :-----: | :------: |
-| `dbUrl` | url to database | `String` | - | `true`
+| `databaseURL` | url to database | `String` | - | `true`
 | `seed` | array of seed objects | `Array` | - | `true`
 | `seed[].documents` | File path to _JSON_ file that contains fake documents | `String` | - | `true`
 | `seed[].collection` | Name of collection that will be inserted into database | `String` | - | `true`
