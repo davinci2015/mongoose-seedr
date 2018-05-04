@@ -89,7 +89,6 @@ Configuration object that you pass into _seed_ method: <br>
 | `seed[].collection` | Name of collection that will be inserted into database | `String` | - | `true`
 | `dropDatabase` | Should drop database before inserting fake data | `Boolean` | `true` | `false`
 | `referenceKey` | Prefix key which you're using to link documents between collections | `String` | `"ref:"` | `false`
-| `objectIdKey` | Prefix key which you're using to set Mongo object id to some field | `String` | `"ObjectId:"` | `false`
 
 ## Contributors
 
