@@ -1,7 +1,7 @@
 # mongoose-seedr
 
 _mongoose-seedr_ lets you seed your database with fake data. <br>
-In case when you need to insert data into a database that is linked to another data you can easily set references and it will automatically connect collections and populate database. This way, you don't have do manually link them together.
+In case when you need to insert data into a database that is linked to another data you can easily set references and it will automatically connect collections and populate database. This way, we don't have to manually link them together.
 
 ## Installation
 ```
@@ -86,9 +86,9 @@ Configuration object that you pass into the _seed_ method: <br>
 | ---------- | ----------- | :--: | :-----: | :------: |
 | `databaseURL` | url to database | `String` | - | `true`
 | `seed` | array of seed objects | `Array` | - | `true`
-| `seed[].documents` | File path to _JS_ file that contains fake documents | `String` | - | `true`
-| `seed[].collection` | Name of collection that will be inserted into database | `String` | - | `true`
-| `dropDatabase` | Should drop database before inserting fake data | `Boolean` | `true` | `false`
+| `seed[].documents` | File path to the _JS_ file that contains fake documents | `String` | - | `true`
+| `seed[].collection` | Name of a collection that will be inserted into a database | `String` | - | `true`
+| `dropDatabase` | Defines if script should drop a database before inserting a fake data | `Boolean` | `true` | `false`
 | `referenceKey` | Prefix key which you're using to link documents between collections | `String` | `"ref:"` | `false`
 
 ## Contributors
