@@ -7,8 +7,15 @@ const mongoose = require('mongoose')
 mongoose.Promise = Promise
 
 class Seeder {
-    constructor ({ dbUrl, seed, referenceKey = 'ref:', dropDatabase = true }) {
+    constructor ({
+        dbUrl,
+        seed,
+        referenceKey = 'ref:',
+        objectIdKey = 'ObjectId:',
+        dropDatabase = true
+    }) {
         this._referenceKey = referenceKey
+        this._objectIdKey = objectIdKey
         this._allData = this._loadJSONData(seed)
         this._connectDB(dbUrl)
             .then(() => console.log('Successfully connected to database'))
@@ -45,7 +52,14 @@ class Seeder {
 
     _generateIds () {
         this._allData.forEach((item, collectionName) => {
-            item.map(entry => entry._id = mongoose.Types.ObjectId())
+            item.map(entry => {
+                if (!entry._id) {
+                    entry._id = mongoose.Types.ObjectId()
+                } else {
+                    const id = entry._id.replace(this._objectIdKey, '').trim()
+                    entry._id = mongoose.Types.ObjectId(id)
+                }
+            })
             this._allData.set(collectionName, item)
         })
     }
@@ -67,6 +81,9 @@ class Seeder {
                     obj[key] = randomDocument[accessKey]
                 })
             }
+        } else if (typeof value === 'string' && this._isObjectId(value)) {
+            const id = value.replace(this._objectIdKey, '').trim()
+            obj[key] = mongoose.Types.ObjectId(id)
         }
     }
 
@@ -84,6 +101,10 @@ class Seeder {
 
     _isReference (value) {
         return value.startsWith(this._referenceKey)
+    }
+
+    _isObjectId (value) {
+        return value.startsWith(this._objectIdKey)
     }
 }
 
