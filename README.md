@@ -42,22 +42,22 @@ $ node seedDatabase.js
 ```js
 module.exports = [
     {
-      firstName: "Terrence",
-      lastName: "Hudnall",
-      pets: [
-        "ref:pets._id",
-        "ref:pets._id"
-      ]
+        firstName: 'Terrence',
+        lastName: 'Hudnall',
+        pets: [
+            'ref:pets._id',
+            'ref:pets._id'
+        ]
     },
     {
-      firstName: "Jordan",
-      lastName: "Kelly",
-      pets: [
-        {
-          "size": "ref:pets.size",
-          "name": "ref:pets.name"
-        }
-      ]
+        firstName: 'Jordan',
+        lastName: 'Kelly',
+        pets: [
+            {
+                size: 'ref:pets.size',
+                name: 'ref:pets.name'
+            }
+        ]
     }
 ]
 ```
@@ -66,15 +66,15 @@ In this case, we're using `ref:` followed by collection name and property that w
 
 **pets.js** <br>
 ```js
-modules.exports = [
-  {
-    name: "Nacho",
-    size: "small"
-  },
-  {
-    name: "Pepper",
-    size: "big"
-  }
+module.exports = [
+    {
+        name: 'Nacho',
+        size: 'small'
+    },
+    {
+        name: 'Pepper',
+        size: 'big'
+    }
 ]
 ```
 
