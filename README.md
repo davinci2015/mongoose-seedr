@@ -61,8 +61,8 @@ $ node seedDatabase.js
     }
 ]
 ```
-As we can see, `users.json` file holds list of users. User have _pets_ array that have references to documents in another collection. <br>
-In this case we're using `ref:` followed by collection name and property that we want to get from another collection document. _mongoose-seedr_ will pick random document and pull out property that you specified. <br>
+As we can see, `users.json` file holds list of users. An user have _pets_ array that have references to documents in another collection. <br>
+In this case, we're using `ref:` followed by collection name and property that we want to get from another collection document. _mongoose-seedr_ will pick random document and pull out property that you've specified. <br>
 
 **pets.json** <br>
 ```json
@@ -88,7 +88,8 @@ Configuration object that you pass into _Seedr_ constructor: <br>
 | `seed[].documents` | File path to _JSON_ file that contains fake documents | `String` | - | `true`
 | `seed[].collection` | Name of collection that will be inserted into database | `String` | - | `true`
 | `dropDatabase` | Should drop database before inserting fake data | `Boolean` | `true` | `false`
-| `referenceKey` | String which you're using to link data | `String` | `"ref:"` | `false`
+| `referenceKey` | Prefix key which you're using to link documents between collections | `String` | `"ref:"` | `false`
+| `objectIdKey` | Prefix key which you're using to set Mongo object id to some field | `String` | `"ObjectId:"` | `false`
 
 ## Contributors
 
