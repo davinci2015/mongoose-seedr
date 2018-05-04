@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mongoose-seedr": "^0.1.2"
+    "mongoose-seedr": "^0.4.1"
   }
 }
