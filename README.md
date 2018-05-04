@@ -61,8 +61,6 @@ module.exports = [
     }
 ]
 ```
-As we can see, `users.js` file holds the list of users. An user have _pets_ array that have references to documents in another collection. <br>
-In this case, we're using `ref:` followed by collection name and property that we want to get from document in another collection. _mongoose-seedr_ will pick random document from that collection and pull out property that you've specified. <br>
 
 **pets.js** <br>
 ```js
@@ -78,8 +76,11 @@ module.exports = [
 ]
 ```
 
+As we can see in the previous example, `users.js` file holds the list of users. An user have _pets_ array that have references to documents in _pets_ collection. <br>
+In this case, we're using `ref:` followed by collection name and property that we want to get from document in another collection. _mongoose-seedr_ will pick random document from that collection and pull out property that you've specified. <br>
+
 ### Configuration
-Configuration object that you pass into _seed_ method: <br>
+Configuration object that you pass into the _seed_ method: <br>
 
 | Prop name  | Description | Type | Default | Required |
 | ---------- | ----------- | :--: | :-----: | :------: |
