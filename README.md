@@ -1,11 +1,11 @@
 # mongoose-seedr
 
-_mongoose-seedr_ lets you seed your database with fake data that you provided. <br>
-In case when you need to insert data into database that is linked to another data you can easily set references and it will automatically connect collections and populate database. This way, you don't have do manually create dummy data and link them together.
+_mongoose-seedr_ lets you seed your database with fake data. <br>
+In case when you need to insert data into a database that is linked to another data you can easily set references and it will automatically connect collections and populate database. This way, you don't have do manually link them together.
 
 ## Installation
 ```
-$ npm install --save-dev mongoose-seedr
+$ npm install mongoose-seedr --save-dev
 ```
 
 ## Usage example
@@ -38,43 +38,43 @@ $ node seedDatabase.js
 ### Fake data example
 `users.js` and `pets.js` are _JS_ files with fake data that will be inserted into database. <br>
 
-**users.json** <br>
+**users.js** <br>
 ```js
 module.exports = [
     {
-      firstName: "Terrence",
-      lastName: "Hudnall",
-      pets: [
-        "ref:pets._id",
-        "ref:pets._id"
-      ]
+        firstName: 'Terrence',
+        lastName: 'Hudnall',
+        pets: [
+            'ref:pets._id',
+            'ref:pets._id'
+        ]
     },
     {
-      firstName: "Jordan",
-      lastName: "Kelly",
-      pets: [
-        {
-          "size": "ref:pets.size",
-          "name": "ref:pets.name"
-        }
-      ]
+        firstName: 'Jordan',
+        lastName: 'Kelly',
+        pets: [
+            {
+                size: 'ref:pets.size',
+                name: 'ref:pets.name'
+            }
+        ]
     }
 ]
 ```
-As we can see, `users.js` file holds list of users. An user have _pets_ array that have references to documents in another collection. <br>
-In this case, we're using `ref:` followed by collection name and property that we want to get from another collection document. _mongoose-seedr_ will pick random document and pull out property that you've specified. <br>
+As we can see, `users.js` file holds the list of users. An user have _pets_ array that have references to documents in another collection. <br>
+In this case, we're using `ref:` followed by collection name and property that we want to get from document in another collection. _mongoose-seedr_ will pick random document from that collection and pull out property that you've specified. <br>
 
 **pets.js** <br>
 ```js
-modules.exports = [
-  {
-    name: "Nacho",
-    size: "small"
-  },
-  {
-    name: "Pepper",
-    size: "big"
-  }
+module.exports = [
+    {
+        name: 'Nacho',
+        size: 'small'
+    },
+    {
+        name: 'Pepper',
+        size: 'big'
+    }
 ]
 ```
 
